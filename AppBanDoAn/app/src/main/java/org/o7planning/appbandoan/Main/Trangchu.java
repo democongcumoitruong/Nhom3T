@@ -1,14 +1,16 @@
-package org.o7planning.appbandoan;
+package org.o7planning.appbandoan.Main;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class DangKy extends AppCompatActivity {
+import org.o7planning.appbandoan.R;
+
+public class Trangchu extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dang_ky);
+        setContentView(R.layout.activity_trangchu);
     }
 }
