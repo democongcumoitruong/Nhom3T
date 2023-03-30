@@ -15,7 +15,14 @@
         android:theme="@style/Theme.AppBanDoAn"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".thongtinsanpham"
+            android:name=".Main.Giohang"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Main.thongtinsanpham"
             android:exported="false" />
         <activity
             android:name=".Main.Trangchu"

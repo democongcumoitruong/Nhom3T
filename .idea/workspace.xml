@@ -4,7 +4,78 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="536705df-e557-45ec-ae4a-e30ebe65768a" name="Changes" comment="" />
+    <list default="true" id="536705df-e557-45ec-ae4a-e30ebe65768a" name="Changes" comment="Hien danh sach san pham va xem thong tin san pham">
+      <change afterPath="$PROJECT_DIR$/AppBanDoAn/app/src/main/java/org/o7planning/appbandoan/Interface/Imclick.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AppBanDoAn/app/src/main/java/org/o7planning/appbandoan/Interface/ItemClickListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AppBanDoAn/app/src/main/java/org/o7planning/appbandoan/Main/Giohang.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AppBanDoAn/app/src/main/java/org/o7planning/appbandoan/adapter/mathangadapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AppBanDoAn/app/src/main/java/org/o7planning/appbandoan/model/mathang.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AppBanDoAn/app/src/main/java/org/o7planning/appbandoan/model/mathangmd.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AppBanDoAn/app/src/main/res/drawable-v24/ic_baseline_menu_24.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AppBanDoAn/app/src/main/res/layout/activity_giohang.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/themsanpham.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Nhom3T.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Nhom3T.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/.idea/deploymentTargetDropDown.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/.idea/deploymentTargetDropDown.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/app/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/app/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/app/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/app/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/app/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/app/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/app/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/app/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/app/proguard-rules.pro" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/app/proguard-rules.pro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/app/src/androidTest/java/org/o7planning/appbandoan/ExampleInstrumentedTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/app/src/androidTest/java/org/o7planning/appbandoan/ExampleInstrumentedTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/app/src/main/java/org/o7planning/appbandoan/Main/DangKy.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/app/src/main/java/org/o7planning/appbandoan/Main/DangKy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/app/src/main/java/org/o7planning/appbandoan/Main/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/app/src/main/java/org/o7planning/appbandoan/Main/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/app/src/main/java/org/o7planning/appbandoan/Main/Trangchu.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/app/src/main/java/org/o7planning/appbandoan/Main/Trangchu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/app/src/main/java/org/o7planning/appbandoan/Main/thongtinsanpham.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/app/src/main/java/org/o7planning/appbandoan/Main/thongtinsanpham.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/app/src/main/java/org/o7planning/appbandoan/ketnoi/client.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/app/src/main/java/org/o7planning/appbandoan/ketnoi/client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/app/src/main/java/org/o7planning/appbandoan/ketnoi/cuahang.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/app/src/main/java/org/o7planning/appbandoan/ketnoi/cuahang.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/app/src/main/java/org/o7planning/appbandoan/ketnoi/maychu.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/app/src/main/java/org/o7planning/appbandoan/ketnoi/maychu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/app/src/main/java/org/o7planning/appbandoan/model/MessageModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/app/src/main/java/org/o7planning/appbandoan/model/MessageModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/app/src/main/java/org/o7planning/appbandoan/model/user.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/app/src/main/java/org/o7planning/appbandoan/model/user.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/app/src/main/java/org/o7planning/appbandoan/model/usermd.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/app/src/main/java/org/o7planning/appbandoan/model/usermd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/app/src/main/res/anim/in.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/app/src/main/res/anim/in.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/app/src/main/res/anim/out.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/app/src/main/res/anim/out.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/app/src/main/res/drawable/ic_baseline_add_24.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/app/src/main/res/drawable/ic_baseline_add_24.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/app/src/main/res/drawable/ic_baseline_home_24.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/app/src/main/res/drawable/ic_baseline_home_24.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/app/src/main/res/drawable/ic_baseline_search_24.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/app/src/main/res/drawable/ic_baseline_search_24.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/app/src/main/res/drawable/ic_baseline_shopping_cart_24.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/app/src/main/res/drawable/ic_baseline_shopping_cart_24.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/app/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/app/src/main/res/layout/activity_dang_ky.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/app/src/main/res/layout/activity_dang_ky.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/app/src/main/res/layout/activity_thongtinsanpham.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/app/src/main/res/layout/activity_thongtinsanpham.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/app/src/main/res/layout/activity_trangchu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/app/src/main/res/layout/activity_trangchu.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/app/src/main/res/layout/dongmathang.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/app/src/main/res/layout/dongmathang.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/app/src/main/res/values-night/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/app/src/main/res/values-night/themes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/app/src/main/res/values/themes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/app/src/main/res/xml/backup_rules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/app/src/main/res/xml/backup_rules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/app/src/main/res/xml/data_extraction_rules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/app/src/main/res/xml/data_extraction_rules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/app/src/test/java/org/o7planning/appbandoan/ExampleUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/app/src/test/java/org/o7planning/appbandoan/ExampleUnitTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/gradlew" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/gradlew.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppBanDoAn/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/AppBanDoAn/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/connect.php" beforeDir="false" afterPath="$PROJECT_DIR$/server/connect.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/dangnhap.php" beforeDir="false" afterPath="$PROJECT_DIR$/server/dangnhap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/user.php" beforeDir="false" afterPath="$PROJECT_DIR$/server/user.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,15 +92,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "cidr.known.project.marker": "true",
-    "last_opened_file_path": "C:/Users/admin/Nhom3T/AppBanDoAn"
-  }
-}]]></component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
+    <property name="cidr.known.project.marker" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -40,5 +109,20 @@
       <updated>1680059800397</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Hien danh sach san pham va xem thong tin san pham" />
+    <option name="LAST_COMMIT_MESSAGE" value="Hien danh sach san pham va xem thong tin san pham" />
   </component>
 </project>

@@ -1,26 +1,72 @@
 package org.o7planning.appbandoan.Main;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.EditText;
+import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.navigation.NavigationView;
+import com.nex3z.notificationbadge.NotificationBadge;
 
+import org.o7planning.appbandoan.ketnoi.client;
+import org.o7planning.appbandoan.ketnoi.cuahang;
 import org.o7planning.appbandoan.R;
+import org.o7planning.appbandoan.adapter.mathangadapter;
+import org.o7planning.appbandoan.ketnoi.maychu;
+import org.o7planning.appbandoan.model.mathang;
+import org.o7planning.appbandoan.model.user;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import io.paperdb.Paper;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
+
 public class Trangchu extends AppCompatActivity {
 
     NavigationView navigationView;
+    ListView listView,listViewloai;
+    Toolbar toolbar;
+    private RecyclerView recyclerView,recyclerView5;
+    private DrawerLayout drawerLayout;
 
+    CompositeDisposable compositeDisposable= new CompositeDisposable();
+    cuahang cuahang;
+
+    ArrayList<mathang> mathangs;
+    mathangadapter mathangadapterr;
+    List<mathang> mathangg;
+
+    NotificationBadge badge;
+    TextView textViewtenuser;
     ViewFlipper viewFlipper;
+
+    FrameLayout frameLayout,frameLayout2,frameLayout3,frameLayout4,frameLayout5;
+    EditText searchView;
+    ImageView timiemic;
+    ImageButton btnhome;
 
 
 
@@ -28,17 +74,27 @@ public class Trangchu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trangchu);
+        cuahang = client.getInstance(maychu.BASE_URL).create(cuahang.class);
+        Paper.init(this);
+        if(Paper.book().read("user")!=null){
+            user userr = Paper.book().read("user");
+            maychu.userdangnhap=userr;
+        }
         Anhxa();
         RunviewFlipper();
+
+        dsmathang();
+        acctionToolBar();
+
+
+
     }
 
-    private void Anhxa() {
-        navigationView = findViewById(R.id.naviga);
-        viewFlipper = findViewById(R.id.viewFlipper);
-    }
+
+
 
     private void RunviewFlipper() {
-        List<String> dsmonan = new ArrayList<>();
+        List <String> dsmonan = new ArrayList<>();
         dsmonan.add("https://img.pikbest.com/backgrounds/20210619/stylish-cool-food-burger-restaurant-web-banner_6022760.jpg!w700wp");
         dsmonan.add("https://img.pikbest.com/backgrounds/20210619/retro-simple-chinese-meal-noodles-web-banner_6022757.jpg!w700wp");
         dsmonan.add("https://img.pikbest.com/backgrounds/20210619/fashion-color-gradient-hot-dog-food-web-banner_6022753.jpg!w700wp");
@@ -54,5 +110,111 @@ public class Trangchu extends AppCompatActivity {
         Animation out = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.out);
         viewFlipper.setInAnimation(in);
         viewFlipper.setInAnimation(out);
+    }
+
+    private void acctionToolBar() {
+
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationIcon(R.drawable.ic_baseline_menu_24);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                drawerLayout.openDrawer(GravityCompat.START);
+            }
+        });
+    }
+
+
+    private void dsmathang() {
+        compositeDisposable.add(cuahang.getThemsanpham()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                        mathangmd -> {
+                            if(mathangmd.isSuccess()) {
+                                // Toast.makeText(getApplicationContext(),"thanh cong",Toast.LENGTH_LONG).show();
+                                mathangg = mathangmd.getResult();
+                                mathangadapterr = new mathangadapter(getApplicationContext(), mathangg);
+                                recyclerView.setAdapter(mathangadapterr);
+
+                            }
+                        },
+                        throwable -> {
+                            Toast.makeText(getApplicationContext(),"Không kết nối được " + throwable.getMessage(),Toast.LENGTH_SHORT).show();
+                        }
+                ));
+
+    }
+
+
+
+
+    private void Anhxa() {
+        toolbar = findViewById(R.id.tbtc);
+        navigationView = findViewById(R.id.naviga);
+        listView = findViewById(R.id.listview);
+        //textViewtenuser=findViewById(R.id.tenuser);
+        viewFlipper = findViewById(R.id.viewFlipper);
+        // textViewtenuser.setText(maychu.userdangnhap.getTenuser());
+        btnhome = findViewById(R.id.home);
+        recyclerView = findViewById(R.id.recyview);
+        recyclerView5 = findViewById(R.id.recyviewloai);
+        drawerLayout = findViewById(R.id.iddrawblelayout);
+
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+
+
+        recyclerView5.setHasFixedSize(true);
+        RecyclerView.LayoutManager layoutManagerr = new GridLayoutManager(this, 2);
+        recyclerView5.setLayoutManager(linearLayoutManager);
+
+        mathangs = new ArrayList<>();
+        mathangadapterr = new mathangadapter(getApplicationContext(), mathangs);
+        recyclerView.setHasFixedSize(true);
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 2);
+        recyclerView.setLayoutManager(layoutManager);
+
+        frameLayout = findViewById(R.id.giohangfr);
+        frameLayout2 = findViewById(R.id.frane2);
+        frameLayout3 = findViewById(R.id.frmmenu);
+        frameLayout4 = findViewById(R.id.frmmen4);
+        frameLayout5 = findViewById(R.id.frmmen5);
+        recyclerView.setAdapter(mathangadapterr);
+
+        mathangg = new ArrayList<>();
+
+
+        frameLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Giohang.class);
+                startActivity(intent);
+            }
+        });
+        frameLayout2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                searchView.setVisibility(View.VISIBLE);
+
+
+            }
+        });
+        timiemic = findViewById(R.id.timkiemic);
+        timiemic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                searchView.setVisibility(View.VISIBLE);
+
+            }
+        });
+        searchView = findViewById(R.id.timkiem);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
     }
 }
