@@ -15,6 +15,14 @@
         android:theme="@style/Theme.AppBanDoAn"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ThanhToan"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.google.android.actions"
+            android:resource="@xml/giohang" />
+
+        <activity
             android:name=".Main.Giohang"
             android:exported="false">
             <meta-data
