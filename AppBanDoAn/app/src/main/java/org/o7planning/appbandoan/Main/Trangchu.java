@@ -1,13 +1,5 @@
 package org.o7planning.appbandoan.Main;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -24,17 +16,26 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
-import com.bumptech.glide.Glide;
-import com.google.android.material.navigation.NavigationView;
-import com.nex3z.notificationbadge.NotificationBadge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import org.o7planning.appbandoan.R;
+
+import org.o7planning.appbandoan.adapter.mathangadapter;
 import org.o7planning.appbandoan.ketnoi.client;
 import org.o7planning.appbandoan.ketnoi.cuahang;
-import org.o7planning.appbandoan.R;
-import org.o7planning.appbandoan.adapter.mathangadapter;
 import org.o7planning.appbandoan.ketnoi.maychu;
+
 import org.o7planning.appbandoan.model.mathang;
 import org.o7planning.appbandoan.model.user;
+import com.google.android.material.navigation.NavigationView;
+import com.nex3z.notificationbadge.NotificationBadge;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -85,7 +86,7 @@ public class Trangchu extends AppCompatActivity {
 
         dsmathang();
         acctionToolBar();
-
+        menuu();
 
 
     }
@@ -110,6 +111,40 @@ public class Trangchu extends AppCompatActivity {
         Animation out = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.out);
         viewFlipper.setInAnimation(in);
         viewFlipper.setInAnimation(out);
+    }
+
+    private void menuu() {
+        frameLayout3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        frameLayout4.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        }));
+        frameLayout5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Paper.book().delete("user");
+                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        btnhome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Trangchu.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
     }
 
     private void acctionToolBar() {
@@ -151,7 +186,7 @@ public class Trangchu extends AppCompatActivity {
 
 
     private void Anhxa() {
-        toolbar = findViewById(R.id.tbtc);
+        toolbar=findViewById(R.id.tbtc);
         navigationView = findViewById(R.id.naviga);
         listView = findViewById(R.id.listview);
         //textViewtenuser=findViewById(R.id.tenuser);
@@ -163,33 +198,41 @@ public class Trangchu extends AppCompatActivity {
         drawerLayout = findViewById(R.id.iddrawblelayout);
 
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
 
         recyclerView5.setHasFixedSize(true);
-        RecyclerView.LayoutManager layoutManagerr = new GridLayoutManager(this, 2);
+        RecyclerView.LayoutManager layoutManagerr = new GridLayoutManager(this,2);
         recyclerView5.setLayoutManager(linearLayoutManager);
 
         mathangs = new ArrayList<>();
         mathangadapterr = new mathangadapter(getApplicationContext(), mathangs);
         recyclerView.setHasFixedSize(true);
-        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 2);
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this,2);
         recyclerView.setLayoutManager(layoutManager);
 
-        frameLayout = findViewById(R.id.giohangfr);
-        frameLayout2 = findViewById(R.id.frane2);
-        frameLayout3 = findViewById(R.id.frmmenu);
-        frameLayout4 = findViewById(R.id.frmmen4);
-        frameLayout5 = findViewById(R.id.frmmen5);
+        frameLayout=findViewById(R.id.giohangfr);
+        frameLayout2=findViewById(R.id.frane2);
+        frameLayout3=findViewById(R.id.frmmenu);
+        frameLayout4=findViewById(R.id.frmmen4);
+        frameLayout5=findViewById(R.id.frmmen5);
         recyclerView.setAdapter(mathangadapterr);
 
-        mathangg = new ArrayList<>();
+        mathangg =new ArrayList<>();
 
-
+        badge = findViewById(R.id.solg);
+        if(maychu.dshang==null){
+            maychu.dshang= new ArrayList<>();
+        }else{
+            int solgtthem = 0;
+            for(int i =0; i<maychu.dshang.size();i++) {
+                solgtthem = solgtthem + maychu.dshang.get(i).getSoluong();
+            }
+            badge.setText(String.valueOf(solgtthem));
+        }
         frameLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Giohang.class);
+                Intent intent = new Intent(getApplicationContext(),Giohang.class);
                 startActivity(intent);
             }
         });
@@ -201,7 +244,7 @@ public class Trangchu extends AppCompatActivity {
 
             }
         });
-        timiemic = findViewById(R.id.timkiemic);
+        timiemic=findViewById(R.id.timkiemic);
         timiemic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -210,11 +253,18 @@ public class Trangchu extends AppCompatActivity {
 
             }
         });
-        searchView = findViewById(R.id.timkiem);
+        searchView =findViewById(R.id.timkiem);
+
     }
+
 
     @Override
     protected void onResume() {
         super.onResume();
+        int solgtthem = 0;
+        for(int i =0; i<maychu.dshang.size();i++) {
+            solgtthem = solgtthem + maychu.dshang.get(i).getSoluong();
+        }
+        badge.setText(String.valueOf(solgtthem));
     }
 }
