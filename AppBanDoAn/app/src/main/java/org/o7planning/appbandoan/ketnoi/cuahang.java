@@ -1,6 +1,7 @@
 package org.o7planning.appbandoan.ketnoi;
 
 
+import org.o7planning.appbandoan.model.LoaiSpModel;
 import org.o7planning.appbandoan.model.mathangmd;
 import org.o7planning.appbandoan.model.usermd;
 
@@ -13,6 +14,8 @@ import retrofit2.http.POST;
 import org.o7planning.appbandoan.model.usermd;
 
 public interface cuahang {
+    @GET("getloaisp.php")
+    Observable<LoaiSpModel> getLoaiSp();
     @POST("user.php")
     @FormUrlEncoded
     Observable<usermd> user(

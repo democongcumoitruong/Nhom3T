@@ -27,11 +27,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import org.o7planning.appbandoan.R;
 
+import org.o7planning.appbandoan.adapter.LoaiSpAdapter;
 import org.o7planning.appbandoan.adapter.mathangadapter;
 import org.o7planning.appbandoan.ketnoi.client;
 import org.o7planning.appbandoan.ketnoi.cuahang;
 import org.o7planning.appbandoan.ketnoi.maychu;
 
+import org.o7planning.appbandoan.model.LoaiSp;
 import org.o7planning.appbandoan.model.mathang;
 import org.o7planning.appbandoan.model.user;
 import com.google.android.material.navigation.NavigationView;
@@ -69,7 +71,9 @@ public class Trangchu extends AppCompatActivity {
     ImageView timiemic;
     ImageButton btnhome;
 
-
+    LoaiSpAdapter loaiSpAdapter;
+    ArrayList<LoaiSp>mangLoaiSp;
+    List<LoaiSp> loaispp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,7 +87,7 @@ public class Trangchu extends AppCompatActivity {
         }
         Anhxa();
         RunviewFlipper();
-
+        getLoaiSanPham();
         dsmathang();
         acctionToolBar();
         menuu();
@@ -91,7 +95,26 @@ public class Trangchu extends AppCompatActivity {
 
     }
 
+    private void getLoaiSanPham() {
+        compositeDisposable.add(cuahang.getLoaiSp()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                        loaiSpModel -> {
+                            if(loaiSpModel.isSuccess()) {
+                                // Toast.makeText(getApplicationContext(),"thanh cong",Toast.LENGTH_LONG).show();
+                                loaispp = loaiSpModel.getResult();
+                                loaiSpAdapter = new LoaiSpAdapter(getApplicationContext(), loaispp);
+                                recyclerView5.setAdapter(loaiSpAdapter);
 
+                            }
+                        },
+                        throwable -> {
+                            Toast.makeText(getApplicationContext(),"Không kết nối được " + throwable.getMessage(),Toast.LENGTH_SHORT).show();
+                        }
+                ));
+
+    }
 
 
     private void RunviewFlipper() {
@@ -199,7 +222,8 @@ public class Trangchu extends AppCompatActivity {
 
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
-
+        mangLoaiSp = new ArrayList<>();
+        loaiSpAdapter = new LoaiSpAdapter(getApplicationContext(),mangLoaiSp);
         recyclerView5.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManagerr = new GridLayoutManager(this,2);
         recyclerView5.setLayoutManager(linearLayoutManager);
@@ -216,9 +240,9 @@ public class Trangchu extends AppCompatActivity {
         frameLayout4=findViewById(R.id.frmmen4);
         frameLayout5=findViewById(R.id.frmmen5);
         recyclerView.setAdapter(mathangadapterr);
-
+        recyclerView5.setAdapter(loaiSpAdapter);
         mathangg =new ArrayList<>();
-
+        loaispp =new ArrayList<>();
         badge = findViewById(R.id.solg);
         if(maychu.dshang==null){
             maychu.dshang= new ArrayList<>();
