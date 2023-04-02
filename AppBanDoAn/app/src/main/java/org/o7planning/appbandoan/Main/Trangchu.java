@@ -26,13 +26,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import org.o7planning.appbandoan.R;
-
 import org.o7planning.appbandoan.adapter.LoaiSpAdapter;
 import org.o7planning.appbandoan.adapter.mathangadapter;
 import org.o7planning.appbandoan.ketnoi.client;
 import org.o7planning.appbandoan.ketnoi.cuahang;
 import org.o7planning.appbandoan.ketnoi.maychu;
-
 import org.o7planning.appbandoan.model.LoaiSp;
 import org.o7planning.appbandoan.model.mathang;
 import org.o7planning.appbandoan.model.user;
@@ -75,6 +73,7 @@ public class Trangchu extends AppCompatActivity {
     ArrayList<LoaiSp>mangLoaiSp;
     List<LoaiSp> loaispp;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,26 +94,7 @@ public class Trangchu extends AppCompatActivity {
 
     }
 
-    private void getLoaiSanPham() {
-        compositeDisposable.add(cuahang.getLoaiSp()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(
-                        loaiSpModel -> {
-                            if(loaiSpModel.isSuccess()) {
-                                // Toast.makeText(getApplicationContext(),"thanh cong",Toast.LENGTH_LONG).show();
-                                loaispp = loaiSpModel.getResult();
-                                loaiSpAdapter = new LoaiSpAdapter(getApplicationContext(), loaispp);
-                                recyclerView5.setAdapter(loaiSpAdapter);
 
-                            }
-                        },
-                        throwable -> {
-                            Toast.makeText(getApplicationContext(),"Không kết nối được " + throwable.getMessage(),Toast.LENGTH_SHORT).show();
-                        }
-                ));
-
-    }
 
 
     private void RunviewFlipper() {
@@ -137,27 +117,6 @@ public class Trangchu extends AppCompatActivity {
     }
 
     private void menuu() {
-        frameLayout3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-        frameLayout4.setOnClickListener((new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        }));
-        frameLayout5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Paper.book().delete("user");
-                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
 
         btnhome.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -182,7 +141,28 @@ public class Trangchu extends AppCompatActivity {
             }
         });
     }
+    private void getLoaiSanPham() {
 
+
+        compositeDisposable.add(cuahang.getLoaiSp()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                        loaiSpModel -> {
+                            if(loaiSpModel.isSuccess()) {
+                                // Toast.makeText(getApplicationContext(),"thanh cong",Toast.LENGTH_LONG).show();
+                                loaispp = loaiSpModel.getResult();
+                                loaiSpAdapter = new LoaiSpAdapter(getApplicationContext(), loaispp);
+                                recyclerView5.setAdapter(loaiSpAdapter);
+
+                            }
+                        },
+                        throwable -> {
+                            Toast.makeText(getApplicationContext(),"Không kết nối được " + throwable.getMessage(),Toast.LENGTH_SHORT).show();
+                        }
+                ));
+
+    }
 
     private void dsmathang() {
         compositeDisposable.add(cuahang.getThemsanpham()
@@ -222,6 +202,7 @@ public class Trangchu extends AppCompatActivity {
 
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
+
         mangLoaiSp = new ArrayList<>();
         loaiSpAdapter = new LoaiSpAdapter(getApplicationContext(),mangLoaiSp);
         recyclerView5.setHasFixedSize(true);
@@ -278,6 +259,44 @@ public class Trangchu extends AppCompatActivity {
             }
         });
         searchView =findViewById(R.id.timkiem);
+        searchView.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                timkiem();
+
+            }
+
+            private void timkiem() {
+                String timkiem = searchView.getText().toString().trim();
+                compositeDisposable.add(cuahang.seach(timkiem)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(
+                                mathangmd -> {
+                                    if (mathangmd.isSuccess()) {
+                                        mathangadapterr = new mathangadapter(getApplicationContext(), mathangmd.getResult());
+                                        recyclerView.setAdapter(mathangadapterr);
+
+                                    }
+
+
+                                }, throwable -> {
+                                    Toast.makeText(getApplicationContext(), throwable.getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+
+                        ));
+            }
+        });
 
     }
 
