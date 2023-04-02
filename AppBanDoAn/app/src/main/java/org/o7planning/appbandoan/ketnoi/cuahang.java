@@ -1,6 +1,7 @@
 package org.o7planning.appbandoan.ketnoi;
 
 
+import org.o7planning.appbandoan.model.Donhangmd;
 import org.o7planning.appbandoan.model.LoaiSpModel;
 import org.o7planning.appbandoan.model.MessageModel;
 import org.o7planning.appbandoan.model.mathangmd;
@@ -73,7 +74,11 @@ public interface cuahang {
             @Field("chitiet") String chitiet
             //  @Field("token") String token
     );
-
+    @POST("xemdonhang.php")
+    @FormUrlEncoded
+    Observable<Donhangmd> xemdonhang(
+            @Field("iduser") int iduser
+    );
 }
 
 
