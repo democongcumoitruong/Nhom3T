@@ -15,6 +15,13 @@
         android:theme="@style/Theme.AppBanDoAn"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Main.Xemdonhang"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".Main.DoUong"
             android:exported="false">
             <meta-data

@@ -117,6 +117,29 @@ public class Trangchu extends AppCompatActivity {
     }
 
     private void menuu() {
+        frameLayout3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),Trangchu.class);
+                startActivity(intent);
+            }
+        });
+        frameLayout4.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),Xemdonhang.class);
+                startActivity(intent);
+            }
+        }));
+        frameLayout5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Paper.book().delete("user");
+                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         btnhome.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -128,6 +151,9 @@ public class Trangchu extends AppCompatActivity {
         });
 
     }
+
+
+
 
     private void acctionToolBar() {
 

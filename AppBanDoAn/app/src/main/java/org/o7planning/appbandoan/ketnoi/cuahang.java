@@ -2,6 +2,7 @@ package org.o7planning.appbandoan.ketnoi;
 
 
 import org.o7planning.appbandoan.model.LoaiSpModel;
+import org.o7planning.appbandoan.model.MessageModel;
 import org.o7planning.appbandoan.model.mathangmd;
 import org.o7planning.appbandoan.model.usermd;
 
@@ -58,6 +59,19 @@ public interface cuahang {
     @FormUrlEncoded
     Observable<mathangmd> seach(
             @Field("seach") String seach
+    );
+    @POST("donhang1.php")
+    @FormUrlEncoded
+    Observable<MessageModel>donhang1(
+            @Field("sdt") String sdt,
+            @Field("email") String email,
+            @Field("tongtien") String tongtien,
+            @Field("iduser") Integer iduser,
+            @Field("tenuser") String tenuser,
+            @Field("diachi") String diachi,
+            @Field("soluong") Integer soluong,
+            @Field("chitiet") String chitiet
+            //  @Field("token") String token
     );
 
 }
